@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+    Judul: Tugas Pertemuan 2
+    NIM: 222520143
+    Nama Lengkap: Ivan Nugroho
+    Kelas: A
+-->
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Pertemuan 2 - Profil Mahasiswa</title>
+</head>
+
+<body>
+
+    <!-- Profil Mahasiswa -->
+    <header>
+        <h1>Profil Mahasiswa</h1>
+        <p>Selamat datang di halaman profil saya.</p>
+    </header>
+
+    <main>
+
+        <!-- Identitas -->
+        <h2>Identitas Diri</h2>
+
+        <img src="fotosaya.png" alt="Foto Mahasiswa" width="200">
+
+        <p><strong>Nama:</strong> Ivan Nugroho</p>
+        <p><strong>NIM:</strong> 222520143</p>
+        <p><strong>Program Studi:</strong> Teknologi Informasi</p>
+
+        <!-- Hobi -->
+        <h2>Hobi Saya</h2>
+
+        <ul>
+            <li>Seni</li>
+            <li>Bersepeda</li>
+            <li>Sepak Bola</li>
+        </ul>
+
+        <!-- Website Kampus -->
+        <h2>Website Kampus</h2>
+
+        <p>
+            Kunjungi website kampus melalui tautan berikut:
+            <a href="https://umpwr.ac.id/" target="_blank">
+                Website Kampus
+            </a>
+        </p>
+
+        <!-- Tabel Mata Kuliah -->
+        <h2>Daftar Mata Kuliah</h2>
+
+        <table border="1">
+            <tr>
+                <th>No</th>
+                <th>Kode Mata Kuliah</th>
+                <th>Nama Mata Kuliah</th>
+                <th>SKS</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>MK001</td>
+                <td>Pemrograman Web</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>MK002</td>
+                <td>Praktikum Pengembangan Aplikasi Bergerak</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>MK003</td>
+                <td>Statistik</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>MK004</td>
+                <td>AIK3</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>MK005</td>
+                <td>Animasi Dan Grafik 2D</td>
+                <td>3</td>
+            </tr>
+        </table>
+
+        <!-- Form Mahasiswa -->
+        <h2>Formulir Mahasiswa</h2>
+
+        <form>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <br><br>
+
+            <label for="jenis-kelamin">Jenis Kelamin:</label>
+
+            <select id="jenis-kelamin" name="jenis_kelamin" required>
+                <option value="">-- Pilih Jenis Kelamin --</option>
+                <option value="laki-laki">Laki-laki</option>
+                <option value="perempuan">Perempuan</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Kirim</button>
+        </form>
+
+        <!-- Data Mahasiswa -->
+        <h2>Data Mahasiswa</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Jenis Kelamin</th>
+                </tr>
+            </thead>
+            <tbody id="dataMahasiswa">
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Profil Mahasiswa</p>
+    </footer>
+
+    <script>
+        const form = document.querySelector("form");
+        const tabel = document.getElementById("dataMahasiswa");
+        let nomor = 1;
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const jenisKelamin =
+                document.getElementById("jenis-kelamin").value;
+
+            const baris = tabel.insertRow();
+
+            baris.insertCell(0).textContent = nomor++;
+            baris.insertCell(1).textContent = nama;
+            baris.insertCell(2).textContent = email;
+            baris.insertCell(3).textContent = jenisKelamin;
+
+            form.reset();
+        });
+    </script>
+
+</body>
+
+</html>
+```
